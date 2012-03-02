@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+/*
+amdRefactor
+@author Matt Crinklaw
+*/
+var importParserWrap = require("./ImportParserWrapper.js");
+var sourceImport = process.argv[2];
+
+FrontEnd = {
+	newImport: function(imp, location) {
+		if (imp === sourceImport) {
+				console.log(
+					location.line + ","
+					+ location.startCol + ","
+					+ location.endCol);
+		}
+	}
+};
+
+importParserWrap.start();

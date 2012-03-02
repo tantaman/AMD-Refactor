@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+// TODO: we need a recursive option...
+// TODO: don't print things we have already seen
+// TODO: make standalone.  break dep on rake?
+/**
+@author Matt Crinklaw
+*/
+var importParserWrap = require("./ImportParserWrapper.js");
+var myPackage = process.argv[2];
+
+FrontEnd = {
+	newImport: function(imp, location) {
+		// if myPackage is not the starting string
+		// of the import then we are importing
+		// something outside of our own package.
+		if (imp.indexOf(myPackage) != 0) {
+			console.log(imp);
+		}
+	}
+};
+
+importParserWrap.start();
